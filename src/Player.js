@@ -1,12 +1,16 @@
 // TypeScript file
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Player = (function (_super) {
     __extends(Player, _super);
     function Player() {
         _super.call(this);
         this.iniit();
     }
-    var d = __define,c=Player,p=c.prototype;
-    p.iniit = function () {
+    Player.prototype.iniit = function () {
         this._people = new egret.Bitmap();
         var _texture = RES.getRes("1_png");
         this._people.texture = _texture;
@@ -27,9 +31,9 @@ var Player = (function (_super) {
         egret.Tween.get(this._people).to({ x: targetX, y: targetY }, 2000).call( function(){this.idle()} ,this);
     
     }*/
-    p.Walk = function () {
+    Player.prototype.Walk = function () {
     };
-    p.Idle = function () {
+    Player.prototype.Idle = function () {
         var _this = this;
         var IdleList = ["1_png", "2_png", "3_png", "4_png"];
         var count = -1;
@@ -43,56 +47,48 @@ var Player = (function (_super) {
     };
     return Player;
 }(egret.DisplayObjectContainer));
-egret.registerClass(Player,'Player');
 var PlayerState = (function () {
     function PlayerState(player) {
         this._player = player;
     }
-    var d = __define,c=PlayerState,p=c.prototype;
-    p.onEnter = function () {
+    PlayerState.prototype.onEnter = function () {
     };
-    p.onExit = function () {
+    PlayerState.prototype.onExit = function () {
     };
     return PlayerState;
 }());
-egret.registerClass(PlayerState,'PlayerState',["State"]);
 var PlayerWalkState = (function (_super) {
     __extends(PlayerWalkState, _super);
     function PlayerWalkState() {
         _super.apply(this, arguments);
     }
-    var d = __define,c=PlayerWalkState,p=c.prototype;
-    p.onEnter = function () {
+    PlayerWalkState.prototype.onEnter = function () {
         this._player._ifWalk = true;
         this._player.Walk();
     };
-    p.onExit = function () {
+    PlayerWalkState.prototype.onExit = function () {
         this._player._ifWalk = false;
     };
     return PlayerWalkState;
 }(PlayerState));
-egret.registerClass(PlayerWalkState,'PlayerWalkState');
 var PlayerIdleState = (function (_super) {
     __extends(PlayerIdleState, _super);
     function PlayerIdleState() {
         _super.apply(this, arguments);
     }
-    var d = __define,c=PlayerIdleState,p=c.prototype;
-    p.onEnter = function () {
+    PlayerIdleState.prototype.onEnter = function () {
         this._player._ifIdle = true;
         this._player.Idle();
     };
-    p.onExit = function () {
+    PlayerIdleState.prototype.onExit = function () {
         this._player._ifIdle = false;
     };
     return PlayerIdleState;
 }(PlayerState));
-egret.registerClass(PlayerIdleState,'PlayerIdleState');
 var StateMachine = (function () {
     function StateMachine() {
     }
-    var d = __define,c=StateMachine,p=c.prototype;
-    p.setState = function (e) {
+    StateMachine.prototype.setState = function (e) {
         if (this.CurrentState != null) {
             this.CurrentState.onExit();
         }
@@ -101,4 +97,3 @@ var StateMachine = (function () {
     };
     return StateMachine;
 }());
-egret.registerClass(StateMachine,'StateMachine');

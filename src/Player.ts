@@ -50,8 +50,9 @@ class Player extends egret.DisplayObjectContainer
         var IdleList = ["1_png","2_png","3_png","4_png"];
         var count = -1;
         egret.Ticker.getInstance().register(() => {
-            count = count + 0.2;
-            if (count >= IdleList.length) {
+            count = count + 0.06;
+            if (count >= IdleList.length) 
+            {
                 count = 0;
             }
 

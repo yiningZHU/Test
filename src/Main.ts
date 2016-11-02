@@ -128,6 +128,7 @@ class Main extends egret.DisplayObjectContainer
          var grid = new TileMap();
          this.addChild(grid);
          var player = new Player();
+         player.Idle();
          this.addChild(player);
     }
 

@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,road_jpg,box_jpg,bg_jpg,egret_icon_png",
+			"keys": "description_json,road_jpg,box_jpg,bg_jpg,egret_icon_png,1_png,2_png,3_png,4_png",
 			"name": "preload"
 		}
 	],
@@ -30,6 +30,26 @@
 			"name": "egret_icon_png",
 			"type": "image",
 			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "1_png",
+			"type": "image",
+			"url": "assets/1.png"
+		},
+		{
+			"name": "2_png",
+			"type": "image",
+			"url": "assets/2.png"
+		},
+		{
+			"name": "3_png",
+			"type": "image",
+			"url": "assets/3.png"
+		},
+		{
+			"name": "4_png",
+			"type": "image",
+			"url": "assets/4.png"
 		}
 	]
 }

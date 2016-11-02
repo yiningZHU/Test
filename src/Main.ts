@@ -124,10 +124,11 @@ class Main extends egret.DisplayObjectContainer
      */
     private createGameMap():void
     {
-        console.log("****");
+        //console.log("****");
          var grid = new TileMap();
          this.addChild(grid);
-
+         var player = new Player();
+         this.addChild(player);
     }
 
 }

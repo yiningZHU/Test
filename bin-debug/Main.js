@@ -101,9 +101,11 @@ var Main = (function (_super) {
      * Create a game scene
      */
     p.createGameMap = function () {
-        console.log("****");
+        //console.log("****");
         var grid = new TileMap();
         this.addChild(grid);
+        var player = new Player();
+        this.addChild(player);
     };
     return Main;
 }(egret.DisplayObjectContainer));
